@@ -150,7 +150,14 @@ SELECT * FROM livro-emprestimo;
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/91ebf162-300b-474c-9938-3ae7aa7222ca)
 
 ## ✔ Utilizando os comandos JOIN para realizar consultas
-### Quais alunos pegaram livros emprestados, quando e quais livros foram?
+### Localização dos livros na biblioteca
+```
+SELECT titulo, localizacao
+FROM livro INNER JOIN sessao
+ON sessao.codigo = livro.cod_sessao;
+```
+![image](https://github.com/alcangio/bancoDados2/assets/142796669/a30bba83-88b5-430d-9cf9-2ad30bafcc50)
+### Quais alunos pegaram livros emprestados, seus títulos e quando foi?
 ```
 SELECT data_hora, nome, titulo
 FROM emprestimo 
@@ -162,5 +169,4 @@ INNER JOIN livro
 ON livro.cod_livro = livro_emprestimo.cod_livro
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/89adca19-2afb-484f-80cc-572b8b05f6df)
-
 
