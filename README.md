@@ -151,14 +151,14 @@ SELECT * FROM livro-emprestimo;
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/91ebf162-300b-474c-9938-3ae7aa7222ca)
 
 ## ✔ Utilizando os comandos JOIN para realizar consultas
-### Consultar localização dos livros na biblioteca
+### 🔍 Consultando localização dos livros na biblioteca
 ```
 SELECT titulo, localizacao
 FROM livro INNER JOIN sessao
 ON sessao.codigo = livro.cod_sessao;
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/a30bba83-88b5-430d-9cf9-2ad30bafcc50)
-### Consultar nome e telefone dos alunos que pegaram livros emprestados, informar a data de devolução e ordenar alfabeticamente pelo nome do aluno
+### 🔍 Consultando nome e telefone dos alunos que pegaram livros emprestados, informar a data de devolução e ordenar alfabeticamente pelo nome do aluno
 ```
 SELECT nome, telefone, data_devolucao
 FROM aluno INNER JOIN emprestimo
@@ -167,7 +167,7 @@ ORDER BY aluno.nome;
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/9e53c742-475a-42e8-a89d-f8187c448479)
 
-### Consultar quais alunos pegaram livros emprestados, seus títulos e a data do empréstimo
+### 🔍 Consultando quais alunos pegaram livros emprestados, seus títulos e a data do empréstimo
 ```
 SELECT data_hora, nome, titulo
 FROM emprestimo 
@@ -181,7 +181,7 @@ ON livro.cod_livro = livro_emprestimo.cod_livro
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/89adca19-2afb-484f-80cc-572b8b05f6df)
 
 ## ✔ Adicionando um trigger (gatilho)
-### 🔔 gatilho relacionado a INSERT na tabela 'emprestimo'
+### 🔔 'definir_datas_emprestimo_devolucao'
 Ao inserir novo registro na tabela 'emprestimo', os atributos *data_hora* e *data_devolucao* serão definidos automaticamente como: data e hora atuais e 7 dias adiante:
 ```
 DELIMITER //
@@ -197,7 +197,9 @@ END;
 
 DELIMITER ;
 ```
-### inserindo novo registro na tabela 'emprestimo'
+![image](https://github.com/alcangio/bancoDados2/assets/142796669/a1a3c57b-ee71-40a8-8573-03a03c71eedb)
+
+### inserindo novo registro na tabela 'emprestimo', informando valor apenas para o atributo 'matric_aluno'
 Após configurado o trigger, adicionando novo registro:
 ```
 INSERT INTO emprestimo (matric_aluno) VALUES (1234);
