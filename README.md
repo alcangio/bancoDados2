@@ -4,13 +4,14 @@
 > [LIVRO_EMPRESTIMO](https://github.com/alcangio/db-ESCOLA/blob/main/Imagem02_Atividade06_BancoDeDadosI.png) e
 > [LIVRO e SESSÃO](https://github.com/alcangio/db-ESCOLA/blob/main/Imagem03_Atividade06_BancoDeDadosI.png).
 
-# Desenvolvimento 1 #101863
-Desenvolva um banco de dados e relacione tabelas através de chaves estrangeiras ou nomes de colunas iguais. Siga as instruções:
+# Desenvolvimentos 1 #101863 e 2 #101859
+Desenvolva um banco de dados: adicione tabelas e determine quais são os atributos de cada uma, relacione tabelas através de chaves estrangeiras ou nomes de colunas iguais:
 - [ ] crie uma base de dados; 
 - [ ] crie tabelas nessa base de dados;
 - [ ] em cada tabela, adicione atributos;
 - [ ] insira dados em cada tabela;
-- [ ] utilize os comandos Joins para realizar consultas nas tabelas. 
+- [ ] utilize os comandos Joins para realizar consultas nas tabelas
+- [ ] execute um trigger que se relacione com algum comando, como insert, select, delete ou update
 
 ## ✔ Criando uma base de dados no MySQL
 ```
@@ -179,3 +180,30 @@ ON livro.cod_livro = livro_emprestimo.cod_livro
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/89adca19-2afb-484f-80cc-572b8b05f6df)
 
+## ✔ Adicionando um trigger (gatilho)
+### 🔔 gatilho relacionado a INSERT na tabela 'emprestimo'
+Ao inserir novo registro na tabela 'emprestimo', os atributos *data_hora* e *data_devolucao* serão definidos automaticamente como: data e hora atuais e 7 dias adiante:
+```
+DELIMITER //
+
+CREATE TRIGGER definir_datas_emprestimo_devolucao
+BEFORE INSERT ON emprestimo
+FOR EACH ROW
+BEGIN
+	SET NEW.data_hora = CURRENT_TIMESTAMP;
+    SET NEW.data_devolucao = ADDDATE(NEW.data_hora, INTERVAL 7 DAY);
+END;
+//
+
+DELIMITER ;
+```
+### inserindo novo registro na tabela 'emprestimo'
+Após configurado o trigger, adicionando novo registro:
+```
+INSERT INTO emprestimo (matric_aluno) VALUES (1234);
+```
+### projetando a tabela 'emprestimo'
+```
+SELECT * FROM emprestimo;
+```
+![image](https://github.com/alcangio/bancoDados2/assets/142796669/c1f37612-d08c-4092-9e0d-613b0cf2f450)
