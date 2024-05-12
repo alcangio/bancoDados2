@@ -182,7 +182,7 @@ ON livro.cod_livro = livro_emprestimo.cod_livro
 
 ## ✔ Adicionando um trigger (gatilho)
 ### 🔔 'definir_datas_emprestimo_devolucao'
-Ao inserir novo registro na tabela 'emprestimo', os atributos *data_hora* e *data_devolucao* serão definidos automaticamente como: data e hora atuais e 7 dias adiante:
+Ao inserir novo registro na tabela 'emprestimo', os atributos *data_hora* e *data_devolucao* serão definidos automaticamente - data e hora atuais e 7 dias adiante:
 ```
 DELIMITER //
 
