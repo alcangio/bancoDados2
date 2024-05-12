@@ -18,7 +18,7 @@ Desenvolva um banco de dados: adicione tabelas e determine quais são os atribut
 CREATE DATABASE db-escola;
 ```
 ## ✔ Criando as tabelas e adicionando seus atributos e dados
-### 👨🏼‍🎓 ALUNO
+### 👨🏼‍🎓 Aluno
 **criando a tabela 'aluno'**
 ```
 CREATE TABLE aluno (
@@ -45,7 +45,7 @@ SELECT * FROM aluno;
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/f92f4867-aa4f-4ee5-9dec-f6e96d1c4303)
 
-### 📤 EMPRÉSTIMO
+### 📤 Empréstimo
 **criando a tabela 'emprestimo'**
 ```
 CREATE TABLE emprestimo (
@@ -72,7 +72,7 @@ SELECT * FROM emprestimo;
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/82a0fb1f-a3ed-4c43-86f5-182f9b2e1c8d)
 
-### 📽 SESSÃO
+### 📽 Sessão
 **criando a tabela 'sessao'**
 ```
 CREATE TABLE sessao (
@@ -96,7 +96,7 @@ SELECT * FROM sessao;
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/2859b1d3-fb12-44e5-80ee-80b3c38970fe)
 
-### 📖 LIVRO
+### 📖 Livro
 **criando a tabela 'livro'**
 ```
 CREATE TABLE livro (
@@ -123,7 +123,7 @@ SELECT * FROM livro;
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/13568841-5ca7-476e-9600-065de6023a26)
 
-### 📑 LIVRO-EMPRÉSTIMO
+### 📑 Livro-Empréstimo
 **criando a tabela 'livro-emprestimo'**
 ```
 CREATE TABLE livro_emprestimo (
@@ -199,12 +199,11 @@ DELIMITER ;
 ```
 ![image](https://github.com/alcangio/bancoDados2/assets/142796669/a1a3c57b-ee71-40a8-8573-03a03c71eedb)
 
-### inserindo novo registro na tabela 'emprestimo', informando valor apenas para o atributo 'matric_aluno'
-Após configurado o trigger, adicionando novo registro:
+**Inserindo novo registro na tabela 'emprestimo', informando valor apenas para o atributo 'matric_aluno'**
 ```
 INSERT INTO emprestimo (matric_aluno) VALUES (1234);
 ```
-### projetando a tabela 'emprestimo'
+**Projetando a tabela 'emprestimo**
 ```
 SELECT * FROM emprestimo;
 ```
