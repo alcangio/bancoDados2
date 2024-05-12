@@ -191,7 +191,7 @@ BEFORE INSERT ON emprestimo
 FOR EACH ROW
 BEGIN
 	SET NEW.data_hora = CURRENT_TIMESTAMP;
-    SET NEW.data_devolucao = ADDDATE(NEW.data_hora, INTERVAL 7 DAY);
+	SET NEW.data_devolucao = ADDDATE(NEW.data_hora, INTERVAL 7 DAY);
 END;
 //
 
